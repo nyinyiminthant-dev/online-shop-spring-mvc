@@ -1,0 +1,272 @@
+body{
+    margin: 0;
+    font-family: Poppins;
+}
+.container{
+    width: 900px;
+    margin: auto;
+    max-width: 90vw;
+    text-align: center;
+    padding-top: 10px;
+    transition: transform .5s;
+}
+svg{
+    width: 30px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.icon-cart{
+    position: relative;
+}
+.icon-cart span{
+    position: absolute;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    top: 50%;
+    right: -20px;
+}
+.title{
+    font-size: xx-large;
+}
+.listProduct .item img{
+    width: 90%;
+    filter: drop-shadow(0 50px 20px #0009);
+}
+.listProduct{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.listProduct .item{
+    background-color: #EEEEE6;
+    padding: 20px;
+    border-radius: 20px;
+}
+.listProduct .item h2{
+    font-weight: 500;
+    font-size: large;
+}
+.listProduct .item .price{
+    letter-spacing: 7px;
+    font-size: small;
+}
+.listProduct .item button{
+    background-color: #353432;
+    color: #eee;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+/* cart */
+.cartTab{
+    width: 400px;
+    
+    background-color: #353432;
+    color: #eee;
+    position: fixed;
+    top: 0;
+    right: -400px;
+    bottom: 0;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: .5s;
+}
+body.showCart .cartTab{
+    right: 0;
+}
+body.showCart .container{
+    transform: translateX(-250px);
+}
+.cartTab h1{
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+}
+.cartTab .btn{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.cartTab button{
+    background-color: #E8BC0E;
+    border: none;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
+}
+.cartTab .close{
+    background-color: #eee;
+}
+.listCart .item img{
+    width: 100%;
+}
+.listCart .item{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+.listCart .quantity span{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #eee;
+    border-radius: 50%;
+    color: #555;
+    cursor: pointer;
+}
+.listCart .quantity span:nth-child(2){
+    background-color: transparent;
+    color: #eee;
+    cursor: auto;
+}
+.listCart .item:nth-child(even){
+    background-color: #eee1;
+}
+
+/* .listCart{
+	
+    overflow: auto;
+}
+.listCart::-webkit-scrollbar{
+    width: 0;
+} 
+ */
+ 
+/* Style the cart to have a maximum height and allow scrolling*/
+
+.listCart {
+    max-height: 400px; /* Adjust the height as needed */
+    overflow-y: auto;
+    padding-right: 10px; /* Add padding to avoid content overlap with the scrollbar */
+}
+
+.listCart::-webkit-scrollbar {
+    width: 8px; /* Customize the scrollbar width */
+}
+
+.listCart::-webkit-scrollbar-thumb {
+    background-color: #888; /* Customize the scrollbar color */
+    border-radius: 10px; /* Rounded scrollbar */
+}
+s
+.listCart::-webkit-scrollbar-thumb:hover {
+    background-color: #555;/*  Darken on hover */
+}
+
+.listCart::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of scrollbar */
+}
+
+
+
+@media only screen and (max-width: 992px) {
+    .listProduct{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* mobile */
+@media only screen and (max-width: 768px) {
+    .listProduct{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+.underline {
+    margin-top: 40px; /* Space between the last product and the underline */
+    margin-bottom: 10px; /* Space between underline and total price */
+}
+
+.underline hr {
+    border: none;
+    border-top: 2px solid #000; /* Customize the thickness and color of the underline */
+    width: 100%; /* Adjust the width as needed */
+}
+
+.total {
+    text-align: right; /* Align total price to the right */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.action-buttons button {
+    width: 48%;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.deleteAllBtn {
+    
+    color: black;
+}
+
+.buyAllBtn {
+   
+    color: black;
+}
+
+
+        
+/* More specific selector to ensure it takes precedence */
+.swal2-popup.small-alert {
+    /* width: 300px !important; */ /* Adjust width as needed */
+   
+    font-size: 13px; /* Adjust font size if necessary */
+    position: fixed;          /* Fixed position to stay on top */
+    top: 20px;      
+}
+
+
+/* Custom styles for the success message */
+
+.success-message {
+	
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+.hidden {
+            display: none;
+            transition: opacity 0.5s ease-out;
+        }
+        
+
+        

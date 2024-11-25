@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-4.0.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+    <!-- Scanning Controller and Repository Packages -->
+    <context:component-scan base-package="Online_shop.Controller" />
+    <context:component-scan base-package="Online_shop.Repository" />
+
+    <!-- Enabling Spring MVC Annotations -->
+    <mvc:annotation-driven />
+
+    <!-- Resource Handlers for Static Resources -->
+   <!--  <mvc:resources mapping="/resources/**" location="/resources/" /> -->
+    <mvc:resources mapping="/upload/**" location="file:/D:/Manvanlesson/Online_shop/src/main/webapp/upload/" />
+    <mvc:resources mapping="/upload/**" location="file:/D:/Manvanlesson/Online_shop/src/main/webapp/" />
+
+
+    <!-- View Resolver for JSP Views -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- Bean Definitions for Repositories -->
+    <bean id="userRepository" class="Online_shop.Repository.userRepository" />
+    <!-- Corrected the bean name for categoryRepository -->
+    <bean id="categoryRepository" class="Online_shop.Repository.categoryRepository" />
+    
+     <bean id="productRepository" class="Online_shop.Repository.productRepository" />
+      <bean id="orderRepository" class="Online_shop.Repository.orderRepository" />
+      
+
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+</beans>
